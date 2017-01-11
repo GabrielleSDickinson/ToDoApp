@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1113AE631E25D1B1009D3007 /* GabbeesApp v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GabbeesApp v2.xcdatamodel"; sourceTree = "<group>"; };
 		112CCB4F1E00BD5100041AF9 /* Gabbee's App 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gabbee's App 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		112CCB521E00BD5100041AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112CCB541E00BD5100041AF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -326,9 +327,10 @@
 		11579D141E0A09430011999B /* GabbeesApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1113AE631E25D1B1009D3007 /* GabbeesApp v2.xcdatamodel */,
 				11579D151E0A09430011999B /* GabbeesApp.xcdatamodel */,
 			);
-			currentVersion = 11579D151E0A09430011999B /* GabbeesApp.xcdatamodel */;
+			currentVersion = 1113AE631E25D1B1009D3007 /* GabbeesApp v2.xcdatamodel */;
 			path = GabbeesApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
