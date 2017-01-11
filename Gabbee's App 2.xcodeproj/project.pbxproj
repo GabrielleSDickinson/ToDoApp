@@ -12,6 +12,10 @@
 		112CCB581E00BD5100041AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112CCB561E00BD5100041AF9 /* Main.storyboard */; };
 		112CCB5A1E00BD5100041AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112CCB591E00BD5100041AF9 /* Assets.xcassets */; };
 		112CCB5D1E00BD5100041AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112CCB5B1E00BD5100041AF9 /* LaunchScreen.storyboard */; };
+		11579D161E0A09430011999B /* GabbeesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11579D141E0A09430011999B /* GabbeesApp.xcdatamodeld */; };
+		11579D181E0A0A000011999B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11579D171E0A0A000011999B /* DataController.swift */; };
+		11BC17501E00C4DE005135C5 /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC174F1E00C4DE005135C5 /* ToDoListTableViewController.swift */; };
+		11BC17521E00C84A005135C5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC17511E00C84A005135C5 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		112CCB591E00BD5100041AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		112CCB5C1E00BD5100041AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		112CCB5E1E00BD5100041AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11579D151E0A09430011999B /* GabbeesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GabbeesApp.xcdatamodel; sourceTree = "<group>"; };
+		11579D171E0A0A000011999B /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		11BC174F1E00C4DE005135C5 /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoListTableViewController.swift; path = ../ToDoListTableViewController.swift; sourceTree = "<group>"; };
+		11BC17511E00C84A005135C5 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +62,16 @@
 		112CCB511E00BD5100041AF9 /* Gabbee's App 2 */ = {
 			isa = PBXGroup;
 			children = (
+				11BC174F1E00C4DE005135C5 /* ToDoListTableViewController.swift */,
+				11579D141E0A09430011999B /* GabbeesApp.xcdatamodeld */,
 				112CCB521E00BD5100041AF9 /* AppDelegate.swift */,
 				112CCB541E00BD5100041AF9 /* ViewController.swift */,
 				112CCB561E00BD5100041AF9 /* Main.storyboard */,
 				112CCB591E00BD5100041AF9 /* Assets.xcassets */,
 				112CCB5B1E00BD5100041AF9 /* LaunchScreen.storyboard */,
 				112CCB5E1E00BD5100041AF9 /* Info.plist */,
+				11BC17511E00C84A005135C5 /* ToDoItem.swift */,
+				11579D171E0A0A000011999B /* DataController.swift */,
 			);
 			path = "Gabbee's App 2";
 			sourceTree = "<group>";
@@ -138,7 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				112CCB551E00BD5100041AF9 /* ViewController.swift in Sources */,
+				11579D181E0A0A000011999B /* DataController.swift in Sources */,
 				112CCB531E00BD5100041AF9 /* AppDelegate.swift in Sources */,
+				11BC17521E00C84A005135C5 /* ToDoItem.swift in Sources */,
+				11579D161E0A09430011999B /* GabbeesApp.xcdatamodeld in Sources */,
+				11BC17501E00C4DE005135C5 /* ToDoListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,8 +318,22 @@
 				112CCB631E00BD5100041AF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11579D141E0A09430011999B /* GabbeesApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11579D151E0A09430011999B /* GabbeesApp.xcdatamodel */,
+			);
+			currentVersion = 11579D151E0A09430011999B /* GabbeesApp.xcdatamodel */;
+			path = GabbeesApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 112CCB471E00BD5100041AF9 /* Project object */;
 }

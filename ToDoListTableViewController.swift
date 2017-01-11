@@ -7,11 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoListTableViewController: UITableViewController {
 
+    var toDoItems = [ToDoItem]()
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+    
+        let source: ViewController = segue.source as! ViewController
+        
+        if let item: ToDoItem = source.toDoItem {
+            
+            self.toDoItems.append(item)
+            
+            storeToDoItem(name: item.itemName)
+            
+            loadInitalData()
+            
+            self.tableView.reloadData()
+        
+        }
+    
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadInitalData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,67 +54,99 @@ class ToDoListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.toDoItems.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListPrototypeCell", for: indexPath)
 
-        // Configure the cell...
-
+        let toDoItem: ToDoItem = self.toDoItems[indexPath.row]
+        
+        cell.textLabel?.text = toDoItem.itemName
+        
+        if toDoItem.completed {
+            
+            cell.accessoryType = .checkmark
+        }
+        else{
+            
+            cell.accessoryType = .none
+        }
+        
         return cell
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let tappedItem: ToDoItem = self.toDoItems[indexPath.row]
+        
+        tappedItem.completed = !tappedItem.completed
+        
+        tableView.reloadData()
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    
+
+    func loadInitalData(){
+        let moc = DataController().managedObjectContext
+        
+        let fetchRequest: NSFetchRequest<ToDoItemEntity> = ToDoItemEntity.fetchRequest()
+        
+        do {
+            let searchResults = try moc.fetch(fetchRequest)
+            
+            print("number of results: \(searchResults.count)")
+            
+            self.toDoItems = [ToDoItem]()
+            
+            for entity in searchResults as [NSManagedObject] {
+            
+                let item = ToDoItem(name: entity.value(forKey: "itemName")as! String)
+                self.toDoItems.append(item)
+            }
+            
+            
+        } catch {
+            print("error retrieving items")
+        }
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    
+    func storeToDoItem(name: String) {
+        let moc = DataController().managedObjectContext
+        
+        let entity = NSEntityDescription.entity(forEntityName:"ToDoItemEntity", in: moc)
+        
+        let toDo = NSManagedObject(entity: entity!, insertInto: moc)
+        
+        toDo.setValue(name, forKey: "itemName")
+        toDo.setValue(false, forKey: "completed")
+        
+        
+        do {
+            try moc.save()
+            print("saved")
+        } catch let error as NSError {
+            print(error)
+        } catch {
+            
+        }
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }

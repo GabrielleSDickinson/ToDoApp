@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class ToDoItem: NSCoder  {
+
+    var itemName: String = ""
+    var completed: Bool = false
+    var creationDate = Date()
+    
+    init (name:String){
+        self.itemName=name
+    }
+ }
