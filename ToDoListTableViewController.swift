@@ -106,7 +106,7 @@ class ToDoListTableViewController: UITableViewController {
         do {
             let searchResults = try moc.fetch(fetchRequest)
             
-            print("number of results: \(searchResults.count)")
+            print("results: \(searchResults.count)")
             
             self.toDoItems = [ToDoItem]()
             
