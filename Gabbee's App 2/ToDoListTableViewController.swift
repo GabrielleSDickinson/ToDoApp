@@ -21,7 +21,7 @@ class ToDoListTableViewController: UITableViewController {
             
             self.toDoItems.append(item)
             
-            storeToDoItem(name: item.itemName)
+            storeToDoItem(name: item.itemName, notes: item.itemNotes)
             
             loadInitalData()
             
@@ -64,11 +64,12 @@ class ToDoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListPrototypeCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemTableViewCell
 
         let toDoItem: ToDoItem = self.toDoItems[indexPath.row]
         
-        cell.textLabel?.text = toDoItem.itemName
+        cell.itemNameLabel?.text = toDoItem.itemName
+        cell.itemNotesLabel?.text = toDoItem.itemNotes
         
         if toDoItem.completed {
             
@@ -112,7 +113,11 @@ class ToDoListTableViewController: UITableViewController {
             
             for entity in searchResults as [NSManagedObject] {
             
-                let item = ToDoItem(name: entity.value(forKey: "itemName")as! String)
+                let item = ToDoItem(
+                                name: entity.value(forKey: "itemName")as! String,
+                                notes: entity.value(forKey: "itemNotes")as! String
+                            )
+                
                 self.toDoItems.append(item)
             }
             
@@ -125,7 +130,7 @@ class ToDoListTableViewController: UITableViewController {
     
     
     
-    func storeToDoItem(name: String) {
+    func storeToDoItem(name: String, notes: String) {
         let moc = DataController().managedObjectContext
         
         let entity = NSEntityDescription.entity(forEntityName:"ToDoItemEntity", in: moc)
@@ -133,6 +138,7 @@ class ToDoListTableViewController: UITableViewController {
         let toDo = NSManagedObject(entity: entity!, insertInto: moc)
         
         toDo.setValue(name, forKey: "itemName")
+        toDo.setValue(notes, forKey: "itemNotes")
         toDo.setValue(false, forKey: "completed")
         
         

@@ -13,8 +13,10 @@ class ToDoItem: NSCoder  {
     var itemName: String = ""
     var completed: Bool = false
     var creationDate = Date()
+    var itemNotes: String = ""
     
-    init (name:String){
+    init (name:String, notes:String){
         self.itemName=name
+        self.itemNotes=notes
     }
  }
