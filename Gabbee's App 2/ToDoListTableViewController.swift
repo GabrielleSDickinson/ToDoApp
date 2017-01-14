@@ -64,11 +64,12 @@ class ToDoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListPrototypeCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoItemTableViewCell
 
         let toDoItem: ToDoItem = self.toDoItems[indexPath.row]
         
-        cell.textLabel?.text = toDoItem.itemName
+        cell.itemNameLabel?.text = toDoItem.itemName
+        cell.itemNotesLabel?.text = toDoItem.itemNotes
         
         if toDoItem.completed {
             
