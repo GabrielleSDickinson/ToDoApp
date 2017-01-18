@@ -11,7 +11,11 @@ import CoreData
 
 class ToDoListTableViewController: UITableViewController {
 
+   
     var toDoItems = [ToDoItem]()
+    var selectedToDoItem: ToDoItem?
+    @IBOutlet var toDosTableView: UITableView!
+    
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
     
@@ -84,16 +88,10 @@ class ToDoListTableViewController: UITableViewController {
         
     }
  
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        let tappedItem: ToDoItem = self.toDoItems[indexPath.row]
-        
-        tappedItem.completed = !tappedItem.completed
-        
-        tableView.reloadData()
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        self.selectedtoDoItem = self.toDoItems[indexPath.row]
+//    }
     
 
     
@@ -153,6 +151,20 @@ class ToDoListTableViewController: UITableViewController {
         
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDoItemDetailSegue" {
+            
+            let nextViewController = segue.destination as? ToDoDetialsViewController
+            let indexPath = self.toDosTableView.indexPathForSelectedRow
+            
+            nextViewController?.toDoItem = self.toDoItems[(indexPath?.row)!]
+            
+            
+            
+        }
+    }
     
     
 }

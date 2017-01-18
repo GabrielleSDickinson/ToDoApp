@@ -13,6 +13,7 @@
 		112CCB5A1E00BD5100041AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112CCB591E00BD5100041AF9 /* Assets.xcassets */; };
 		112CCB5D1E00BD5100041AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112CCB5B1E00BD5100041AF9 /* LaunchScreen.storyboard */; };
 		11579D181E0A0A000011999B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11579D171E0A0A000011999B /* DataController.swift */; };
+		11951DD91E2ED3E400787696 /* ToDoDetialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11951DD81E2ED3E400787696 /* ToDoDetialsViewController.swift */; };
 		11BC17521E00C84A005135C5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC17511E00C84A005135C5 /* ToDoItem.swift */; };
 		11FDAB031E29B40F002D3BE1 /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FDAB021E29B40F002D3BE1 /* ToDoListTableViewController.swift */; };
 		11FDAB041E29B43F002D3BE1 /* GabbeesDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11FDAAFF1E29B27A002D3BE1 /* GabbeesDataStore.xcdatamodeld */; };
@@ -28,6 +29,7 @@
 		112CCB5C1E00BD5100041AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		112CCB5E1E00BD5100041AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11579D171E0A0A000011999B /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		11951DD81E2ED3E400787696 /* ToDoDetialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDetialsViewController.swift; sourceTree = "<group>"; };
 		11BC17511E00C84A005135C5 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		11FDAB001E29B27A002D3BE1 /* GabbeesDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GabbeesDataStore.xcdatamodel; sourceTree = "<group>"; };
 		11FDAB021E29B40F002D3BE1 /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
@@ -64,19 +66,52 @@
 		112CCB511E00BD5100041AF9 /* Gabbee's App 2 */ = {
 			isa = PBXGroup;
 			children = (
-				11FDAB021E29B40F002D3BE1 /* ToDoListTableViewController.swift */,
-				11FDAAFF1E29B27A002D3BE1 /* GabbeesDataStore.xcdatamodeld */,
 				112CCB521E00BD5100041AF9 /* AppDelegate.swift */,
-				112CCB541E00BD5100041AF9 /* ViewController.swift */,
+				11951DDC1E2EF08200787696 /* Utility */,
+				11951DDB1E2EF06900787696 /* Models */,
+				11951DDA1E2EF06100787696 /* View Controllers */,
+				11951DDD1E2EF0A500787696 /* Table View Cells */,
 				112CCB561E00BD5100041AF9 /* Main.storyboard */,
 				112CCB591E00BD5100041AF9 /* Assets.xcassets */,
 				112CCB5B1E00BD5100041AF9 /* LaunchScreen.storyboard */,
 				112CCB5E1E00BD5100041AF9 /* Info.plist */,
-				11BC17511E00C84A005135C5 /* ToDoItem.swift */,
-				11579D171E0A0A000011999B /* DataController.swift */,
-				11FDAB051E29BAB3002D3BE1 /* ToDoItemTableViewCell.swift */,
 			);
 			path = "Gabbee's App 2";
+			sourceTree = "<group>";
+		};
+		11951DDA1E2EF06100787696 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				112CCB541E00BD5100041AF9 /* ViewController.swift */,
+				11FDAB021E29B40F002D3BE1 /* ToDoListTableViewController.swift */,
+				11951DD81E2ED3E400787696 /* ToDoDetialsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		11951DDB1E2EF06900787696 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11BC17511E00C84A005135C5 /* ToDoItem.swift */,
+				11FDAAFF1E29B27A002D3BE1 /* GabbeesDataStore.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		11951DDC1E2EF08200787696 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				11579D171E0A0A000011999B /* DataController.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		11951DDD1E2EF0A500787696 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				11FDAB051E29BAB3002D3BE1 /* ToDoItemTableViewCell.swift */,
+			);
+			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +192,7 @@
 				112CCB551E00BD5100041AF9 /* ViewController.swift in Sources */,
 				11579D181E0A0A000011999B /* DataController.swift in Sources */,
 				112CCB531E00BD5100041AF9 /* AppDelegate.swift in Sources */,
+				11951DD91E2ED3E400787696 /* ToDoDetialsViewController.swift in Sources */,
 				11BC17521E00C84A005135C5 /* ToDoItem.swift in Sources */,
 				11FDAB061E29BAB3002D3BE1 /* ToDoItemTableViewCell.swift in Sources */,
 			);
